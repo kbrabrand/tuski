@@ -8,9 +8,15 @@
             "email": "kristoffer@brabrand.no"
         }
     ],
+    "config": {
+        "bin-dir": "bin/"
+    },
     "require": {
         "php": ">=5.4.0",
         "silex/silex": "~1.2"
+    },
+    "require-dev": {
+        "behat/behat": "~3.0"
     },
     "autoload": {
         "psr-4": {
