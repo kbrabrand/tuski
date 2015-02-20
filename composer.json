@@ -1,0 +1,20 @@
+{
+    "name": "vaffel/tuski",
+    "description": "A pluggable TUS service provider for Silex",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kristoffer Brabrand",
+            "email": "kristoffer@brabrand.no"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "silex/silex": "~1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vaffel\\Tuski\\": "src"
+        }
+    }
+}
