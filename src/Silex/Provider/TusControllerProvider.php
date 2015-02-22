@@ -26,15 +26,15 @@ class TusControllerProvider implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         // HEAD request for checking file upload status
-        $controllers->head('/{resourceId}', function (Request $req, $resourceId) use ($app) {
+        $controllers->match('/{resourceId}', function (Request $req, $resourceId) use ($app) {
             $fileStatus = $app[TusServiceProvider::GET_FILE_STATUS]($resourceId);
 
             if (!$fileStatus) {
                 return new Response('Not Found', 404);
             }
 
-            return new Response('', 200, ['Offset' => 1337])
-        });
+            return new Response('', 200, ['Offset' => 1337]);
+        }, 'HEAD');
 
         return $controllers;
     }
