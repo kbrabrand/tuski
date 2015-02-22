@@ -8,12 +8,48 @@ use Behat\Gherkin\Node\TableNode;
 
 use Silex\Application;
 use Vaffel\Tuski\Silex\Provider\TusBuilder;
+use Vaffel\Tuski\Services\Storage\DiskStorageService;
 
 /**
  * Defines application features from the specific context.
  */
 class FeatureContext implements Context, SnippetAcceptingContext
 {
+    /**
+     * Application instance
+     *
+     * @var Silex\Application
+     */
+    protected $app;
+
+    /**
+     * The current response object
+     *
+     * @var Symfony\Component\HttpFoundation\Response
+     */
+    protected $response;
+
+    /**
+     * Initializes context.
+     *
+     * Every scenario gets its own context instance.
+     * You can also pass arbitrary arguments to the
+     * context constructor through behat.yml.
+     */
+    public function __construct()
+    {
+        $this->app = new Application();
+
+        $this->store = new DiskStorageService();
+
+        TusBuilder::mountProviderIntoApplication(
+            '/tus',
+            $this->app,
+            $this->store,
+            []
+        );
+    }
+
     /**
      * @Given The following files are in my store
      */

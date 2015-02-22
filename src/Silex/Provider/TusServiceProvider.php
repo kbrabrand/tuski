@@ -4,7 +4,7 @@ namespace Vaffel\Tuski\Silex\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
-use Vaffel\Tus\Interfaces\StorageServiceInterface;
+use Vaffel\Tuski\Interfaces\StorageServiceInterface;
 
 class TusServiceProvider implements ServiceProviderInterface
 {
