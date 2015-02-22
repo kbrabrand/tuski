@@ -4,11 +4,11 @@ namespace Vaffel\Tuski\Interfaces;
 
 interface StorageServiceInterface
 {
-    public function storeFileChunk($resourceId, $offset, $length);
+    public function storeChunk($resourceId, $offset, $length);
 
-    public function getFileChunk($resourceId, $offset, $length);
+    public function getChunk($resourceId, $offset, $length);
 
-    public function getFileChunks($resourceId);
+    public function getChunks($resourceId);
 
-    public function deleteFileChunks($resourceId);
+    public function deleteChunks($resourceId);
 }
