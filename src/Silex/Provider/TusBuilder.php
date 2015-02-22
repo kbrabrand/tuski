@@ -9,7 +9,7 @@ class TusBuilder
 {
     public static function mountProviderIntoApplication($route, Application $app, StorageServiceInterface $storageService, $config = [])
     {
-        $app->register(new TusServiceProvider($tokenService));
+        $app->register(new TusServiceProvider($storageService));
 
         $app->mount($route, (new TusControllerProvider($config))->setBaseRoute($route));
     }
